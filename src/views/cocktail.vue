@@ -39,6 +39,9 @@
 </template>
 <script>
 import axios from 'axios';
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
+
 export default {
     created(){
         axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.mycocktail}`)
@@ -68,6 +71,13 @@ export default {
        generatePDF: ()=>{ 
            
            console.log("generate");
+           window.html2canvas = html2canvas;
+           var doc = new jsPDF("p","pt","a3",false,true);
+           doc.html(document.querySelector("#invoice"),{
+               callback:function(pdf){
+                   pdf.save("mypdf.pdf");
+               }
+           })
      
     },
     
@@ -79,6 +89,8 @@ export default {
     align-items: center;
     justify-content: center;
     background-color:#c5f5e1b6;
+    max-height: 11in;
+    max-width: 8.5in;
 }
 .photos{
   height: 400px;
