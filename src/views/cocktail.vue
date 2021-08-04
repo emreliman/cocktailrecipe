@@ -60,7 +60,7 @@ export default {
            var doc = new jsPDF("p","pt","a3",false,true);
            doc.html(document.querySelector("#invoice"),{
                callback:function(pdf){
-                   pdf.save("myfile.pdf");
+                   pdf.save("cocktail.pdf");
                }
            })
      
