@@ -1,7 +1,7 @@
 <template>
     <div class="d-flex flex-column p-5" id="invoice" v-if="mycocktailitem">
-        
-    <h1 class="display-1">{{mycocktail}} </h1>
+    <router-link :to="{name:'Home'}">Cocktails</router-link>
+    <h1 class="display-2">{{mycocktail}} </h1>
     <img class="rounded mx-auto  d-block photos" :src="mycocktailitem.strDrinkThumb">
     <div class="alert alert-success" role="alert">
     Instructions
@@ -31,19 +31,26 @@ export default {
       this.cocktails=response.data.drinks;
     }).catch((error)=>{
       console.log(error);
-    })
+    });
+
     }, 
+    mounted(){
+        this.cocktailname=String(this.mycocktail);
+    },
     data(){
     return{
       cocktails:[],
+      cocktailname:"",
       
     
     }
     },
     computed:{
         mycocktail(){
-            
+            if(this.$route.params.id)
             return this.$route.params.id;
+            else
+            return "margarita";
         },
         mymessage(){
             return this.$route.params.msg;
