@@ -5,4 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
 // import BootstrapVue from "bootstrap-vue"
 
-createApp(App).use(router).mount("#app");
+new Vue({
+    router,
+    render: h => h(App)
+}).$mount('#app');
