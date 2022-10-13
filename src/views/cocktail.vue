@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex flex-column p-5" id="invoice" v-if="mycocktailitem">
+    <div class="d-flex flex-column p-5 justify-content-center align-items-center m-auto " id="invoice" v-if="mycocktailitem">
     <router-link :to="{name:'Home'}">Cocktails</router-link>
     <h1 class="display-2">{{mycocktail}} </h1>
     <img class="rounded mx-auto  d-block photos" :src="mycocktailitem.strDrinkThumb">

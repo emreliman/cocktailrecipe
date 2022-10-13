@@ -1,4 +1,4 @@
-import { createRouter,createWebHistory} from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 
 const routes = [
@@ -17,13 +17,16 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path:'/cocktail/:id',name:'cocktail',component:()=>import(/* webpackChunkName: "cocktail" */ "../views/cocktail.vue"),
-  }
+    path: "/cocktail/:id",
+    name: "cocktail",
+    component: () =>
+      import(/* webpackChunkName: "cocktail" */ "../views/cocktail.vue"),
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  mode: 'history',
+  mode: "history",
   routes,
 });
 
